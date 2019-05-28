@@ -1,5 +1,8 @@
 package com.abhishek.springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -15,6 +18,18 @@ public class TennisCoach implements Coach {
 	// default constructor
 	public TennisCoach() {
 		System.out.println(">> TennisCoach: Inside default constructor");
+	}
+	
+	// define init method
+	@PostConstruct
+	public void doMyStartupStuff() {
+		System.out.println(">> TennisCoach: Inside doMyStartupStuff()");
+	}
+	
+	// define destroy method
+	@PreDestroy
+	public void doMyCleanupStuff() {
+		System.out.println(">> TennisCoach: Inside doMyCleanupStuff()");
 	}
 	
 	//setter injection
